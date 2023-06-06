@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} push test
 on: [push]
 jobs:
   lint:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 
         uses: actions/checkout@v3
