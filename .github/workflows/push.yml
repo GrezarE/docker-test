@@ -5,19 +5,21 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Install Node.JS
         uses: actions/setup-node@v1
-        with: 
-          node-version: '14'
+        with:
+          node-version: "14"
       - name: Install dependencies
         run: npm ci
       - name: Changed files
+        id: get_file_changes
         uses: trilom/file-changes-action@v1.2.4
         with:
           output: " "
       - name: Echo file changes
+        id: echo_file_changes
         run: |
         echo Added files: ${{ steps.get_file_changes.outputs.files_added }}
         echo Changed files: ${{ steps.get_file_changes.outputs.files_modified }}
