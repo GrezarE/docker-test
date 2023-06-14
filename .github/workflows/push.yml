@@ -21,9 +21,9 @@ jobs:
           output: " "
       - name: Echo file changes
         run: | 
-          echo ${{ steps.get_file_changes.outputs.files_added }}
+          echo Added: ${{ steps.get_file_changes.outputs.files_added }}
           echo Changed: ${{ steps.get_file_changes.outputs.files_modified }}
-          echo ${{ steps.get_file_changes.outputs.files_removed }}
+          echo Removed: ${{ steps.get_file_changes.outputs.files_removed }}
       - name: Run ESLint
         run: npm run lint
         working-directory: ./frontend
