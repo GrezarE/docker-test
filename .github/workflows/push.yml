@@ -21,10 +21,10 @@ jobs:
           output: ' '
       - name: Echo file changes
         id: hello
-        run: |
-        echo Added files: ${{ steps.get_file_changes.outputs.files_added }}
-        echo Changed files: ${{ steps.get_file_changes.outputs.files_modified }}
-        echo Removed files: ${{ steps.get_file_changes.outputs.files_removed }}
+        run: 
+          echo Added files: ${{ steps.get_file_changes.outputs.files_added }}
+          echo Changed files: ${{ steps.get_file_changes.outputs.files_modified }}
+          echo Removed files: ${{ steps.get_file_changes.outputs.files_removed }}
       - name: Run ESLint
         run: npm run lint
         working-directory: ./frontend
