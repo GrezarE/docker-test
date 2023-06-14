@@ -5,12 +5,12 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Install Node.JS
         uses: actions/setup-node@v1
-        with: 
-          node-version: '14'
+        with:
+          node-version: "14"
       - name: Install dependencies
         run: npm ci
         working-directory: ./frontend
@@ -18,13 +18,13 @@ jobs:
         id: get_file_changes
         uses: trilom/file-changes-action@v1.2.4
         with:
-          output: ' '
+          output: " "
       - name: Echo file changes
         id: hello
-        run: 
-          echo Added files: ${{ steps.get_file_changes.outputs.files_added }}
-          echo Changed files: ${{ steps.get_file_changes.outputs.files_modified }}
-          echo Removed files: ${{ steps.get_file_changes.outputs.files_removed }}
+        run: | 
+          echo "${{ steps.get_file_changes.outputs.files_added }}"
+          echo "${{ steps.get_file_changes.outputs.files_modified }}"
+          echo ${{ steps.get_file_changes.outputs.files_removed }}
       - name: Run ESLint
         run: npm run lint
         working-directory: ./frontend
