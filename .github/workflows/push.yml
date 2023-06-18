@@ -38,6 +38,10 @@ jobs:
       #   run: npm run build
       - name: GH-Pages deploy
         if: ${{success()}}
-        run: npm run deploy
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # working-directory: ./frontend
+      # working-directory: ./frontend
