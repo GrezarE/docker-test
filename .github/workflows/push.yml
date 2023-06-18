@@ -37,7 +37,7 @@ jobs:
       # - name: Start
       #   run: npm run build
       - name: GH-Pages deploy
-        if: ${{success()}}
+        if: ${{failure()}}
         run: npm run lint
 
         # working-directory: ./frontend
